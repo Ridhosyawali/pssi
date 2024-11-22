@@ -31,16 +31,13 @@ nav .right-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
-  a img {
-    object-fit: cover;
-    object-position: center;
-    height: 20px;
-    width: 20px;
-  }
 }
 
-nav .right-nav img {
+nav .right-nav .social-nav {
+  display: flex;
+}
+
+nav .right-nav .social-nav img {
   object-fit: cover;
   object-position: center;
   height: 20px;
@@ -80,10 +77,6 @@ nav .right-nav a {
 
 nav .right-nav p {
   padding: 8px 16px;
-}
-
-nav .right-nav .icon {
-  display: none;
 }
 
 .menu {
@@ -166,8 +159,8 @@ nav .right-nav .icon {
 
   &:hover {
     transform: scale(1.1);
-    z-index: -100;
-    position: static;
+    /* z-index: -100; */
+    /* position: static; */
   }
 }
 
@@ -310,9 +303,13 @@ nav .right-nav .icon {
 .banner2 {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   justify-content: center;
+  padding-inline: 130px;
   padding-bottom: 40px;
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .content2 {
@@ -363,15 +360,21 @@ nav .right-nav .icon {
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
-    z-index: -1;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.2);
+      .image-art {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+
     .image-art {
-      overflow: hidden;
-      position: relative;
       img {
-        z-index: 1;
-        transition: transform 0.3s ease-in-out;
         width: 100%;
-        transform-origin: top;
+        transition: transform 0.2s ease-in-out;
+
         object-fit: cover;
         object-position: center;
       }
@@ -416,13 +419,26 @@ nav .right-nav .icon {
     background-color: #fff;
     border: 1px solid #ccc;
     border-bottom: 10px solid #f31111;
-    z-index: -1;
+
     position: relative;
-    img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      object-position: center;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.2);
+      .image-art {
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    .image-art {
+      overflow: hidden;
+      img {
+        transition: transform 0.2s ease-in-out;
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        object-position: center;
+      }
     }
     .content-art {
       padding-inline: 12px;
@@ -524,6 +540,7 @@ nav .right-nav .icon {
 .container3 {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 16px;
   width: 100%;
   box-sizing: border-box;
@@ -532,13 +549,21 @@ nav .right-nav .icon {
 .momen {
   box-sizing: border-box;
   background-color: #fff;
-
+  overflow: hidden;
   width: 100%;
+  &:hover {
+    cursor: pointer;
+    .image img {
+      transform: scale(1.05);
+    }
+  }
   .image img {
     width: 100%;
     height: 130px;
     object-fit: cover;
     object-position: center;
+
+    transition: transform 0.2s ease-in-out;
   }
   .title-momen {
     padding: 4px;
@@ -571,79 +596,93 @@ footer .author {
   color: #eb374e;
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+
   nav {
-    padding-inline: 16px;
-  }
+    padding-inline: 20px;
 
-  nav .left-nav {
-    gap: 16px;
-  }
-
-  nav .left-nav a img {
-    height: 30px;
-  }
-
-  nav .right-nav a {
-    display: none;
-  }
-
-  nav .right-nav .icon {
-    display: block;
-    background-color: transparent;
-    padding: 0px;
-    text-align: center;
-    margin-top: 5px;
-    &:hover {
-      color: transparent;
+    .right-nav .social-nav {
+      display: none;
     }
   }
 
-  nav .right-nav .icon:hover {
-    color: black;
+  .menu {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 40px;
+    padding-inline: 20px;
+    li a {
+      font-size: 12px;
+    }
   }
 
-  .material-symbols-outlined:hover {
-    color: #eb374e;
+  .banner2 {
+    padding-inline: 20px;
   }
 
-  .material-symbols-outlined {
-    color: white;
-  }
-
-  .personal {
+  .content {
+    padding-inline: 20px;
     display: flex;
     flex-direction: column;
-    padding-inline: 16px;
-    justify-content: center;
-    padding-bottom: 16px;
+    box-sizing: border-box;
+    .banner {
+      width: 100%;
+    }
+    .schedule {
+      width: 100%;
+    }
   }
 
-  .personal .left {
-    display: flex;
-    justify-content: center;
+  .content2 {
+    padding-inline: 20px;
+
+    .container2 {
+      display: flex;
+      flex-direction: column;
+      .article {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   }
 
-  .card {
-    max-width: fit-content;
-  }
+  .content3 {
+    padding-inline: 20px;
 
-  .personal .right h1,
-  h2 {
-    display: flex;
-    justify-content: center;
-  }
-
-  .personal .right .skill {
-    justify-content: center;
-  }
-
-  .personal .right .findme .social {
-    justify-content: center;
+    .container3 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   footer {
-    font-size: 12px;
-    padding: 4px;
+    padding-inline: 20px;
+
+    .other {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      span {
+        font-size: 12px;
+      }
+    }
+    .copyright {
+      font-size: 12px;
+    }
   }
-} */
+}
+
+@media screen and (max-width: 480px) {
+  .menu {
+    gap: 10px;
+
+    li a {
+      font-size: 10px;
+    }
+  }
+}
